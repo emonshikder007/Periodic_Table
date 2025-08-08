@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Periodic Table Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="title">
+        <div class="logo">PT</div>
+        <div>
+          <h1>Periodic Table Viewer</h1>
+          <p class="lead">Search, filter, and view details for all 118 elements</p>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <input id="q" placeholder="Search by name, symbol, or atomic #" aria-label="Search elements">
+        </div>
+        <select id="filter" class="select" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="nonmetal">Nonmetal</option>
+          <option value="metal">Metal</option>
+          <option value="metalloid">Metalloid</option>
+          <option value="noble">Noble gas</option>
+          <option value="lanthanide">Lanthanide</option>
+          <option value="actinide">Actinide</option>
+          <option value="transactinide">Transactinide</option>
+        </select>
+        <div class="chip">Showing <span id="count">0</span> elements</div>
+      </div>
+    </header>
+    <main class="pt-wrap">
+      <div class="grid" id="grid"></div>
+    </main>
+    <footer>Dataset: All 118 known elements, including lanthanides and actinides.</footer>
+  </div>
+  <div class="modal" id="modal" role="dialog" aria-labelledby="m-name" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <button id="close" class="chip" aria-label="Close modal">Close</button>
+      </div>
+      <div class="modal-top">
+        <div class="modal-sym-wrap">
+          <div class="modal-sym" id="m-sym"></div>
+          <div class="modal-num" id="m-num"></div>
+        </div>
+        <div class="modal-info">
+          <h2 id="m-name"></h2>
+          <div class="modal-meta" id="m-cat"></div>
+          <div class="modal-mass" id="m-mass"></div>
+        </div>
+      </div>
+      <div class="modal-grid">
+        <div>
+          <strong>Electron config</strong>
+          <div id="m-ec"></div>
+        </div>
+        <div>
+          <strong>Properties</strong>
+          <div id="m-props"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
